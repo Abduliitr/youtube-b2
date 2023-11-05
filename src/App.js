@@ -1,5 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap/dist/js/bootstrap.js'
+// import 'bootstrap/dist/css/bootstrap'
 import Home from './Home';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Video from './Video';
