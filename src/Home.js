@@ -1,23 +1,38 @@
-import ytLogo from './images/yt-logo.png'
-import searchIcon from './images/search.png'
+
 import kalank from './images/kalank.jpg'
 import avtar from './images/avtar.png'
 import {GoHomeFill} from 'react-icons/go'
 
-function VideoGrid(){
+import Header from './Header'
+import { Link } from 'react-router-dom';
+
+import videosJson from './useful-data-main/videos.json'
+
+
+function VideoGrid(props){
+    let myVideo = props.myVideo;
     return (
         <div class="thumbnail">
             <div class="video">
-                <img src={kalank} />
+            {/* <a href='/video'><img src={kalank} /></a> */}
+            <Link to='/video'><img src={myVideo.thumbnail.url} /></Link>
             </div>
             <div class="video-title">
                 <div>
-                    <img src={avtar} height={'30px'} width={'30px'}></img>
+                        <img src={avtar} height={'30px'} width={'30px'}></img>
+                    
                 </div>
                 <div class="video-info">
-                    <h4 class="track-title margin-0">Kalank Title Track - Lyrical | Alia Bhatt</h4>
-                    <p class="margin-0 smaller-fontsize">T-Series</p>
-                    <p class="margin-0 smaller-fontsize">230M views . 4 years ago</p>
+                    <h4 class="track-title margin-0">
+                        {/* Kalank Title Track - Lyrical | Alia Bhatt */}
+                        {myVideo.title}
+                    </h4>
+                    <p class="margin-0 smaller-fontsize">
+                        {/* T-Series */}
+                        {myVideo.channelName}
+                    </p>
+                    <p class="margin-0 smaller-fontsize">
+                        {myVideo.views} views . {myVideo.uploadedAt} ago</p>
                 </div>
             </div>
             
@@ -38,28 +53,11 @@ function VideoGrid(){
 }
 
 function Home(){
-    let videos = [1, 2, 3, 4, 5 , 6, 7, 8, 9, 10, 11, 12]
+    // let videos = [1, 2, 3, 4, 5 , 6, 7, 8, 9, 10, 11, 12]
+
     return (
         <div>
-            <div class="header">
-                <div class="header-items header-logo">
-                    <div class="header-first"></div>
-                    <div class="header-second">
-                        <img id='yt-logo' src={ytLogo}/>
-                    </div>
-                </div>
-                <div class="header-items header-center">
-                    {/* <div class="header-search"></div> */}
-                    <input class="header-search" placeholder='Search..'/>
-                    <button class="search-button">
-                        <img class="small-image" src={searchIcon}></img>
-                    </button>
-                    <div class="header-mic"></div>
-                </div>
-                <div class="header-items header-profile">
-                    <div class="header-tools"></div>
-                </div>
-            </div>
+            <Header />
             <div class="main-section">
                 <div class="main-left">
                     <button class="yt-side-button">
@@ -83,8 +81,8 @@ function Home(){
                     </button>
                 </div>
                 <div class="main-right">
-                    {videos.map((video) => {
-                        return <VideoGrid />
+                    {videosJson.map((video) => {
+                        return <VideoGrid myVideo={video}/>
                     })}
                 </div>
             </div>
