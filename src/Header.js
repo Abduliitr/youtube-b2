@@ -1,16 +1,29 @@
 // rfce
 
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import ytLogo from './images/yt-logo.png'
 import searchIcon from './images/search.png'
+import avtar from './images/avtar.png'
 import {GiHamburgerMenu} from 'react-icons/gi'
-import {BiSolidMicrophone} from 'react-icons/bi'
+import {BiSolidMicrophone, BiLogOut} from 'react-icons/bi'
 import { Link } from 'react-router-dom'
 
 
 function Header() {
+    const [isUserLoggedIn, setIsLoggedIn] = useState(false);
+
+    useEffect(() => {
+        if(localStorage.getItem('isUserLoggedIn') == 'true'){
+            setIsLoggedIn(true);
+        }
+    }, [])
+
+    const handleLogout = () => {
+        localStorage.setItem('isUserLoggedIn', false);
+        setIsLoggedIn(false);
+    }
   return (
-    <div>
+    <div class="head-container">
       <div class="header">
                 <div class="header-items header-logo">
                     <div class="header-first">
@@ -33,7 +46,22 @@ function Header() {
                     </div>
                 </div>
                 <div class="header-items header-profile">
-                    <button class="header-tools">Sign In</button>
+                    {
+                        isUserLoggedIn ? (
+                            <>
+                                <BiLogOut class="logout" title='Logout' onClick={() => handleLogout()}/>
+                                <img src={avtar} height={'40px'} width={'40px'}
+                                ></img>
+                            </>
+                        ) : (
+                            <>
+                                <Link to={'/signin'}>
+                                <button class="header-tools">Sign In</button>
+                                </Link>
+                            </>
+                        )
+                    }
+                    
                 </div>
             </div>
     </div>

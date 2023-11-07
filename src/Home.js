@@ -15,7 +15,7 @@ function VideoGrid(props){
         <div class="thumbnail">
             <div class="video">
             {/* <a href='/video'><img src={kalank} /></a> */}
-            <Link to='/video'><img src={myVideo.thumbnail.url} /></Link>
+            <Link to={`/video?id=${myVideo.id}`}><img class="thumbnail-home" src={myVideo.thumbnail.url} /></Link>
             </div>
             <div class="video-title">
                 <div>

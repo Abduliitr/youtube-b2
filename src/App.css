@@ -54,7 +54,13 @@ td, th {
   height: 55px;
   justify-content: space-between;
   border-bottom: 2px solid black;
+
 }
+
+/* .head-container{
+    position: fixed;
+  top: 0;
+} */
 
 .header-items{
   display: flex;
@@ -147,6 +153,10 @@ td, th {
   width: 30%;
 }
 
+.thumbnail-home{
+  border-radius: 2%;
+}
+
 .video-title{
   display: flex;
   padding: 2px;
@@ -193,7 +203,7 @@ td, th {
 }
 
 .video-frame{
-  width: 65%;
+  /* width: 80%; */
   padding:20px
 }
 
@@ -203,13 +213,19 @@ td, th {
   border-radius: 2%;
 }
 
+@media screen and (max-width: 700px) {
+  .video-main-page{
+    flex-direction: column;
+  }
+}
+
 .suggested-video{
   display: flex;
   margin-top: 10px;
 }
 
 .suggestion-image{
-  width: 60%;
+  /* width: 60%; */
 }
 
 .suggestion-image > img {
@@ -220,4 +236,63 @@ td, th {
   font-weight: bolder;
   margin-top: 5px;
   margin-bottom: 5px;
+}
+
+.channel-info{
+  display: flex;
+  width: 50%;
+}
+
+.channel-name{
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.subscribe{
+  background-color: black;
+  color: white;
+  border-radius: 30px;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 15px;
+  margin-left: 10px;
+}
+
+.video-details{
+  display: flex;
+  justify-content: space-between;
+}
+
+.video-action-buttons > button {
+  border-radius: 20px;
+  border: 1px solid rgb(230, 227, 227);
+  background-color: rgb(219, 218, 218);
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.video-desc{
+  background-color: rgb(233, 230, 230);
+  margin-top: 15px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.signin{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.signin-action-buttons{
+  margin: 5px;
+}
+
+.logout{
+  font-size: 30px;
+  margin-right: 10px;
+  cursor: pointer;
 }
