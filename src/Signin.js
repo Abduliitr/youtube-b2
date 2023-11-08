@@ -32,6 +32,7 @@ function Signin() {
         console.log(isValidUser)
         if(isValidUser){
             localStorage.setItem('isUserLoggedIn', true);
+            localStorage.setItem('email', emailId);
             alert('User valid')
             console.log(window.location)
             // alert('wait')

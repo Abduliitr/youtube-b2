@@ -1,7 +1,13 @@
 
 import kalank from './images/kalank.jpg'
 import avtar from './images/avtar.png'
+import tseries from './images/tseries.png'
+import bbkivines from './images/bb.jpg'
+import carry from './images/carry.png'
 import {GoHomeFill} from 'react-icons/go'
+import {BsFire} from 'react-icons/bs'
+import {MdOutlineSubscriptions, MdOutlineWatchLater} from 'react-icons/md'
+import {BiSolidVideos, BiHistory} from 'react-icons/bi'
 
 import Header from './Header'
 import { Link } from 'react-router-dom';
@@ -35,19 +41,6 @@ function VideoGrid(props){
                         {myVideo.views} views . {myVideo.uploadedAt} ago</p>
                 </div>
             </div>
-            
-
-                    {/* <img class="thumbnail" src={kalank} />
-                    <img class="thumbnail" src={kalank} />
-                    <img class="thumbnail" src={kalank} />
-                    <img class="thumbnail" src={kalank} />
-                    <img class="thumbnail" src={kalank} />
-                    <img class="thumbnail" src={kalank} />
-                    <img class="thumbnail" src={kalank} />
-                    <img class="thumbnail" src={kalank} />
-                    <img class="thumbnail" src={kalank} />
-                    <img class="thumbnail" src={kalank} />
-                    <img class="thumbnail" src={kalank} /> */}
         </div>
     );
 }
@@ -64,23 +57,38 @@ function Home(){
                         <GoHomeFill /> <span class="side-button-label">Home</span>
                     </button>
                     <button class="yt-side-button">
-                        <GoHomeFill /> <span class="side-button-label">Home</span>
+                        <BsFire /> <span class="side-button-label">Trending</span>
                     </button>
                     <button class="yt-side-button">
-                        <GoHomeFill /> <span class="side-button-label">Home</span>
+                        <MdOutlineSubscriptions /> <span class="side-button-label">Subscriptions</span>
                     </button>
                     <hr />
                     <button class="yt-side-button">
-                        <GoHomeFill /> <span class="side-button-label">Home</span>
+                        <BiSolidVideos /> <span class="side-button-label">Shorts</span>
                     </button>
                     <button class="yt-side-button">
-                        <GoHomeFill /> <span class="side-button-label">Home</span>
+                        <BiHistory /> <span class="side-button-label">History</span>
                     </button>
                     <button class="yt-side-button">
-                        <GoHomeFill /> <span class="side-button-label">Home</span>
+                        <MdOutlineWatchLater /> <span class="side-button-label">Watch Later</span>
+                    </button>
+                    <hr />
+                    <h6 class="fav">Favourites &gt; </h6>
+                    <button class="yt-side-button">
+                        <img src={carry} height={'30px'} width={'30px'}></img>
+                        <span class="side-channel-label">Carry Minati</span>
+                    </button>
+                    <button class="yt-side-button">
+                        <img src={bbkivines} height={'30px'} width={'30px'}></img>
+
+                        <span class="side-channel-label">BB ki Vines</span>
+                    </button>
+                    <button class="yt-side-button">
+                        <img src={tseries} height={'30px'} width={'30px'}></img>
+                        <span class="side-channel-label">T-Series</span>
                     </button>
                 </div>
-                <div class="main-right">
+                <div class="main-right independent-scroll">
                     {videosJson.map((video) => {
                         return <VideoGrid myVideo={video}/>
                     })}

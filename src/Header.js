@@ -6,6 +6,7 @@ import searchIcon from './images/search.png'
 import avtar from './images/avtar.png'
 import {GiHamburgerMenu} from 'react-icons/gi'
 import {BiSolidMicrophone, BiLogOut} from 'react-icons/bi'
+import {BsSearch} from 'react-icons/bs'
 import { Link } from 'react-router-dom'
 
 
@@ -20,6 +21,8 @@ function Header() {
 
     const handleLogout = () => {
         localStorage.setItem('isUserLoggedIn', false);
+        localStorage.removeItem('email');
+
         setIsLoggedIn(false);
     }
   return (
@@ -39,30 +42,33 @@ function Header() {
                     {/* <div class="header-search"></div> */}
                     <input class="header-search" placeholder='Search..'/>
                     <button class="search-button">
-                        <img class="small-image" src={searchIcon}></img>
+                        <BsSearch style={{fontSize: '18px'}}/>
+                        {/* <img class="small-image" src={searchIcon}></img> */}
                     </button>
                     <div class="header-mic">
                         <BiSolidMicrophone class="microphone" />
                     </div>
                 </div>
-                <div class="header-items header-profile">
-                    {
-                        isUserLoggedIn ? (
-                            <>
-                                <BiLogOut class="logout" title='Logout' onClick={() => handleLogout()}/>
-                                <img src={avtar} height={'40px'} width={'40px'}
-                                ></img>
-                            </>
-                        ) : (
-                            <>
-                                <Link to={'/signin'}>
-                                <button class="header-tools">Sign In</button>
-                                </Link>
-                            </>
-                        )
-                    }
+                
+                {
+                    isUserLoggedIn ? (
+                        <div class="header-items header-profile">
+                            <BiLogOut class="logout" title='Logout' onClick={() => handleLogout()}/>
+                            <img src={avtar} height={'40px'} width={'40px'}
+                            ></img>
+                            <p class="user-email margin-0">{localStorage.getItem('email')}</p>
+                            
+
+                        </div>
+                    ) : (
+                        <div class="header-items header-profile">
+                            <Link to={'/signin'}>
+                            <button class="header-tools">Sign In</button>
+                            </Link>
+                        </div>
+                    )
+                }
                     
-                </div>
             </div>
     </div>
   )
