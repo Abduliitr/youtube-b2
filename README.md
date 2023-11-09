@@ -8,6 +8,6 @@ npm start
 
 ### Results:
 
-![Home Page](src\images\youtubecloneb2-home-page.png?raw=true "Home page")
+![Home Page](youtubecloneb2-home-page.png?raw=true "Home page")
 
-![Video Page](src\images\youtubecloneb2-video-page.png?raw=true "Video page")
+![Video Page](youtubecloneb2-video-page.png?raw=true "Video page")
